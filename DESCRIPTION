@@ -26,3 +26,4 @@ Collate:
     'get-base-value.r'
     'package-datalist.r'
     'is.r'
+    'on-failure.r'

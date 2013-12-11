@@ -1,3 +1,16 @@
+#' @title Test data list
+#'
+#' @description
+#' Test whether x is a list of data suitable for input into JAGS, WinBUGS or 
+#' OpenBUGS.
+#' @param x the object to test
+#' @return A logical scalar
+#' @examples
+#' is_data_list(trees)
+#' is_data_list(as.list(trees))
+#' trees$Comment <- "text"
+#' is_data_list(trees)
+#' @export
 is_data_list <- function (x) {
   
   assert_that(is.list(x))
@@ -11,17 +24,19 @@ is_data_list <- function (x) {
   return (all(bol))
 }
 
-on_failure(is_data_list) <- function(call, env) {
-  paste0(deparse(call$x), " is not a list with logical, integer, 
-         or numeric vectors, matrices or arrays and factor, Date, 
-         and POSIXt vectors as the only variables")
-}
-
+#' @title Test data frame
+#'
+#' @description
+#' Tests whether x is a data.frame suitable for input into JAGS, WinBUGS or 
+#' OpenBUGS.
+#' @param x the object to test
+#' @return A logical scalar
+#' @examples
+#' is_data_frame(trees)
+#' is_data_frame(as.list(trees))
+#' trees$Comment <- "text"
+#' is_data_frame(trees)
+#' @export
 is_data_frame <- function (x) {
   return (is.data.frame(x) && is_data_list(as.list(x)))
-}
-
-on_failure(is_data_frame) <- function(call, env) {
-  paste0(deparse(call$x), " is not a data.frame with logical, integer, 
-         numeric, factor, Date, and POSIXt vectors as the only variables")
 }
