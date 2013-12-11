@@ -1,0 +1,14 @@
+citHeader("To cite datalist in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "datalist: R package to convert datasets into numeric data lists 
+                  for import into JAGS, WinBUGS and OpenBUGS",
+  author       = personList(as.person("Joseph L. Thorley")),
+  year         = "2013",
+  url          = "https://github.com/joethorley/jaggernaut",
+  textVersion  =
+  paste("Thorley JL (2013)",
+        "datalist: An R package to convert datasets into numeric data lists for 
+         import into JAGS, WinBUGS and OpenBUGS."
+        )
+)
