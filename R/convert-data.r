@@ -44,9 +44,9 @@ convert_data <- function (data, numericise = TRUE, centre = FALSE,
   assert_that(is.null(dat) || (is_data_frame(dat) && is_data_frame(dat)) &&
                 (is_data_list(dat) && is_data_list(dat)))
   
-  assert_that(is.flag(numericise) || is.string(numericise) || is.null(numericise))
-  assert_that(is.flag(centre) || is.string(centre) || is.null(centre))
-  assert_that(is.flag(standardise) || is.string(standardise) || is.null(standardise))
+  assert_that(is.flag(numericise) || is.character(numericise) || is.null(numericise))
+  assert_that(is.flag(centre) || is.character(centre) || is.null(centre))
+  assert_that(is.flag(standardise) || is.character(standardise) || is.null(standardise))
 
   
   if (is.null(dat))

@@ -13,8 +13,8 @@
 #' @export
 is_data_list <- function (x) {
   
-  assert_that(is.list(x))
-  assert_that(is.character(names(x)))
+  if(!is.list(x) || is.data.frame(x) || !is.character(names(x)))
+    return (FALSE)
   
   bol <- sapply(x, inherits, "logical")
   
@@ -39,4 +39,21 @@ is_data_list <- function (x) {
 #' @export
 is_data_frame <- function (x) {
   return (is.data.frame(x) && is_data_list(as.list(x)))
+}
+
+#' @title Test data
+#'
+#' @description
+#' Tests whether x is a data.frame or list of data suitable for input into 
+#' JAGS, WinBUGS or OpenBUGS.
+#' @param x the object to test
+#' @return A logical scalar
+#' @examples
+#' is_data(trees)
+#' is_data(as.list(trees))
+#' trees$Comment <- "text"
+#' is_data(trees)
+#' @export
+is_data <- function (x) {
+  return (is_data_frame(x) || is_data_list(x))
 }
