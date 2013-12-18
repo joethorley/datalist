@@ -1,6 +1,6 @@
 Package: datalist
-Version: 0.1
-Date: 2013-12-11
+Version: 0.1.1
+Date: 2013-12-17
 Title: An R package to convert datasets into numeric data lists for import
     into JAGS, WinBUGS and OpenBUGS.
 Author: Joe Thorley [aut, cre]
