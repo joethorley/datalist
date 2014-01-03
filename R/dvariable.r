@@ -1,4 +1,3 @@
-
 dvariable <- function(x) {
   UseMethod("dvariable", x)
 }
