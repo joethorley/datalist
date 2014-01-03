@@ -21,7 +21,9 @@ generate_range.vnumeric <- function (object, length_out = 30) {
 }
 
 generate_range.vfactor<-function (object, length_out = 30) {
-  return (object$levels)
+  if(length_out >= length(object$levels))
+    return (object$levels)
+  return (object$levels[1:length_out])
 }
 
 generate_range.vdate <- function (object, length_out = 30) {
