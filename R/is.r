@@ -57,3 +57,7 @@ is_data_frame <- function (x) {
 is_data_set <- function (x) {
   return (is_data_frame(x) || is_data_list(x))
 }
+
+is.POSIXt <- function (x) {
+  return (inherits(x, "POSIXt"))
+}
