@@ -1,19 +1,33 @@
-#' @title Generate dummy data
+#' @title Generate data
 #'
 #' @description
-#' Generates dummy data frame based on the variables in data.
-#' If a variable is specified in range then it is represented
-#' by a sequence of evenly spaced values from the minimum to the maximum 
-#' of the observed values (the range) of length equal to length_out. 
-#' If it is not specified in range then it is represented by the mean of the 
-#' observed values. The returned data frame includes all combinations of the
-#' generated values.
+#' Generates a data.frame that can then be passed to a model to predict the 
+#' effects of particular variables with the other variables held constant.
 #' 
-#' @param data the data frame of variables used to generate the dummy data frame
+#' @details
+#' Unless a variable is named in range it is fixed at its base value. 
+#' A logical variable base value is FALSE while a factor's is
+#' its first level. All other variables are set to be the mean value
+#' of the same class, i.e., an integer variable's base value is its rounded mean.
+#' 
+#' If a variable is specified in range then it is represented
+#' by a sequence of as evenly spaced as possible unique values of the same class 
+#' from the minimum to the maximum of the observed values with a 
+#' length of length_out (by default 30). The only exceptions are if the number of
+#' unique values between the maximum or minimum are less than length_out or 
+#' logical variables
+#' for which the only values returned are FALSE and TRUE and factors for which all levels
+#' are returned.  
+#' 
+#' The generated data frame consists of all combinations of the values for the
+#' variables in range together with the base value for the other variables.
+#' 
+#' @param data the data.frame of variables from which the data.frame will be generated
 #' @param range a character vector of the variables in data to 
 #' represent by a sequence of values
 #' @param length_out the the number of values in a sequence
-#' @return the dummy data frame
+#' @return The generated data.frame which can then be passed to a model for the
+#' purpose of estimating the effects of particular variables.
 #' @examples
 #' data <- data.frame(numeric = 1:10 + 0.1, integer = 1:10, 
 #'    factor = factor(1:10), date = as.Date("2000-01-01") + 1:10,
@@ -42,7 +56,7 @@ generate_data <- function (data, range = NULL, length_out = 30) {
     if (colname %in% range) {
         dat[[colname]] <- generate_range(variable, length_out=length_out)        
     } else
-      dat[[colname]] <- get_base_value(variable)
+      dat[[colname]] <- base(variable)
   }
   data <- expand.grid (dat)
   

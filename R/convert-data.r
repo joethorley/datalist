@@ -1,30 +1,38 @@
 #' @title Convert data
 #'
 #' @description
-#' Convert (by numericising, centring or standardising) the variables in a 
-#' data frame into integer or numeric values ready for analysis by 
+#' Convert (by numericising, centring or standardising) the variables of a 
+#' data.frame or elements of a list into a list of integer or numeric values 
+#' ready for analysis by 
 #' JAGS, OpenBUGS or WinBUGS.
 #' 
 #' Numericising, centring and standardising represent increasing conversion of a
-#' variable. A variable is first converted into a integer value (numericising).
-#' Next the mean is substracted from all the values (centring). Finally all the values
-#' are divided by the standard deviation (standardising).
+#' variable. A variable is first converted into a numeric value (numericising).
+#' Next the mean is subtracted from all the values (centring). Finally all the 
+#' values are divided by the standard deviation (standardising).
 #' 
-#' Numericising has no effect on numeric and integer values 
-#' and Date and POSIXt variables are numericised by converting to integer values, 
-#' and subtracting the integer value of 1999-12-31 or 1999-12-31 23:59:59 GMT, respectively.
+#' Numericising has no effect on numeric and integer values. Factors are 
+#' numericized
+#' by converting to an integer.
+#' Date and POSIXt variables are numericised by converting to integer values
+#' and subtracting the integer value of 1999-12-31 or 1999-12-31 23:59:59 GMT, 
+#' respectively.
 #' 
-#' Centring has no affect on factors and Date and POSIXt values are subtracted from
-#' the rounded mean. Similarly, standardising has no affect on factors and centred 
+#' Centring has no affect on factors while Date and POSIXt values are subtracted 
+#' from the rounded mean. 
+#' Similarly, standardising has no affect on factors while centred 
 #' Date and POSIXt values are divided by their respective standard deviation.
 #'
 #'
-#' @param data the data frame or data list on which the conversion is based
-#' @param numericise the variables to numericise
-#' @param centre the variables to centre
-#' @param standardise the variables to standardise
-#' @param dat the data frame or data list to convert. If dat is NULL data is 
-#' converted
+#' @param data the data frame or list of data on which the conversion is based
+#' @param numericise a logical scalar or a character vector of the variables to 
+#' numericise
+#' @param centre a logical scalar or a character vector of the variables 
+#' to centre
+#' @param standardise a logical scalar or a character vector of the variables
+#' to standardise
+#' @param dat the data frame or data list to convert. If dat is NULL the dataset 
+#' passed as the data argument is converted
 #' @return The converted data frame
 #' @examples
 #' data <- data.frame(numeric = 1:10 + 0.1, integer = 1:10, 
@@ -39,10 +47,12 @@
 convert_data <- function (data, numericise = TRUE, centre = FALSE, 
                           standardise = FALSE, dat = NULL) {
   
-  assert_that(is_data_frame(data) || is_data_list(data))
-  assert_that(is.null(dat) || is_data_frame(dat) || is_data_list(dat))
-  assert_that(is.null(dat) || (is_data_frame(data) && is_data_frame(dat)) ||
-                (is_data_list(data) && is_data_list(dat)))
+  assert_that(is_convertible_data_frame(data) || is_convertible_data_list(data))
+  assert_that(is.null(dat) || is_convertible_data_frame(dat) ||
+                is_convertible_data_list(dat))
+  assert_that(is.null(dat) || (is_convertible_data_frame(data) && 
+                                 is_convertible_data_frame(dat)) ||
+                (is_convertible_data_list(data) && is_convertible_data_list(dat)))
   
   assert_that(is.flag(numericise) || is.character(numericise) || is.null(numericise))
   assert_that(is.flag(centre) || is.character(centre) || is.null(centre))

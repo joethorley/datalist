@@ -2,48 +2,53 @@
 \alias{convert_data}
 \title{Convert data}
 \usage{
-  convert_data(data, numericise = TRUE, centre = FALSE,
-    standardise = FALSE, dat = NULL)
+convert_data(data, numericise = TRUE, centre = FALSE, standardise = FALSE,
+  dat = NULL)
 }
 \arguments{
-  \item{data}{the data frame or data list on which the
+  \item{data}{the data frame or list of data on which the
   conversion is based}
 
-  \item{numericise}{the variables to numericise}
+  \item{numericise}{a logical scalar or a character vector
+  of the variables to numericise}
 
-  \item{centre}{the variables to centre}
+  \item{centre}{a logical scalar or a character vector of
+  the variables to centre}
 
-  \item{standardise}{the variables to standardise}
+  \item{standardise}{a logical scalar or a character vector
+  of the variables to standardise}
 
   \item{dat}{the data frame or data list to convert. If dat
-  is NULL data is converted}
+  is NULL the dataset passed as the data argument is
+  converted}
 }
 \value{
-  The converted data frame
+The converted data frame
 }
 \description{
-  Convert (by numericising, centring or standardising) the
-  variables in a data frame into integer or numeric values
-  ready for analysis by JAGS, OpenBUGS or WinBUGS.
+Convert (by numericising, centring or standardising) the
+variables of a data.frame or elements of a list into a list
+of integer or numeric values ready for analysis by JAGS,
+OpenBUGS or WinBUGS.
 
-  Numericising, centring and standardising represent
-  increasing conversion of a variable. A variable is first
-  converted into a integer value (numericising). Next the
-  mean is substracted from all the values (centring).
-  Finally all the values are divided by the standard
-  deviation (standardising).
+Numericising, centring and standardising represent
+increasing conversion of a variable. A variable is first
+converted into a numeric value (numericising). Next the
+mean is subtracted from all the values (centring). Finally
+all the values are divided by the standard deviation
+(standardising).
 
-  Numericising has no effect on numeric and integer values
-  and Date and POSIXt variables are numericised by
-  converting to integer values, and subtracting the integer
-  value of 1999-12-31 or 1999-12-31 23:59:59 GMT,
-  respectively.
+Numericising has no effect on numeric and integer values.
+Factors are numericized by converting to an integer. Date
+and POSIXt variables are numericised by converting to
+integer values and subtracting the integer value of
+1999-12-31 or 1999-12-31 23:59:59 GMT, respectively.
 
-  Centring has no affect on factors and Date and POSIXt
-  values are subtracted from the rounded mean. Similarly,
-  standardising has no affect on factors and centred Date
-  and POSIXt values are divided by their respective
-  standard deviation.
+Centring has no affect on factors while Date and POSIXt
+values are subtracted from the rounded mean. Similarly,
+standardising has no affect on factors while centred Date
+and POSIXt values are divided by their respective standard
+deviation.
 }
 \examples{
 data <- data.frame(numeric = 1:10 + 0.1, integer = 1:10,

@@ -1,6 +1,7 @@
-
 NEWS 
 ====
+
+* datalist has been deemed ready for general use and has been submitted to CRAN
 
 For more fine-grained list of changes or to report a bug, consult 
 
@@ -21,8 +22,3 @@ And constructed with the following guidelines:
 * New additions without breaking backward compatibility bumps the minor 
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
-
-Version 0.1
-----------
-
-Modified code from jaggernaut to produce a stand-alone package.
