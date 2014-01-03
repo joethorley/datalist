@@ -9,7 +9,7 @@ on_failure(is_data_frame) <- function(call, env) {
          numeric, factor, Date, and POSIXt vectors as the only variables")
 }
 
-on_failure(is_data) <- function(call, env) {
+on_failure(is_data_set) <- function(call, env) {
   paste0(deparse(call$x), " is not a data.frame (or list) with logical, integer, 
          or numeric vectors (or matrices or arrays) and factor, Date, 
          and POSIXt vectors as the only variables")

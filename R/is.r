@@ -41,7 +41,7 @@ is_data_frame <- function (x) {
   return (is.data.frame(x) && is_data_list(as.list(x)))
 }
 
-#' @title Test data
+#' @title Test data set
 #'
 #' @description
 #' Tests whether x is a data.frame or list of data suitable for input into 
@@ -49,11 +49,11 @@ is_data_frame <- function (x) {
 #' @param x the object to test
 #' @return A logical scalar
 #' @examples
-#' is_data(trees)
-#' is_data(as.list(trees))
+#' is_data_set(trees)
+#' is_data_set(as.list(trees))
 #' trees$Comment <- "text"
-#' is_data(trees)
+#' is_data_set(trees)
 #' @export
-is_data <- function (x) {
+is_data_set <- function (x) {
   return (is_data_frame(x) || is_data_list(x))
 }
