@@ -1,4 +1,3 @@
-
 generate_range <- function (object, ...) {
   UseMethod("generate_range", object)
 }
