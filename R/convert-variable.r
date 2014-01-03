@@ -1,4 +1,3 @@
-
 convert_variable <- function(object, x, numericise = TRUE, 
                              centre = FALSE, standardise = FALSE) {
   UseMethod("convert_variable", object)
