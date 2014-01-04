@@ -1,20 +1,18 @@
 Package: datalist
 Version: 0.2
 Date: 2014-01-03
-Title: An R package to convert data sets for import
-    into JAGS, WinBUGS and OpenBUGS and to generate data.frames for predicting
-    the effects of particular variables.
+Title: Numericise, centre, standardise and generate data sets
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 License: GPL-2
-Description: datalist is an R package to 1) convert data sets into numeric data
-    lists for import into JAGS, WinBUGS and OpenBUGS and 2) generate data.frames
+Description: Numericises, centres and standardises data sets into numeric data
+    lists for import into JAGS, WinBUGS and OpenBUGS and generates data.frames
     that can be passed to models for the purposes of predicting the effects of
     particular variables with the other variables held constant.
 URL: https://github.com/joethorley/datalist
 Depends:
     R (>= 3.0.2)
 Imports:
-    assertthat
+    assertthat (>= 0.1)
 Suggests:
-    testthat
+    testthat (>= 0.7)
