@@ -1,12 +1,18 @@
 NEWS 
 ====
 
-* datalist has been deemed ready for general use and has been submitted to CRAN
+datalist 0.2
+----------
+
+v0.2 was deemed ready for general use and released on CRAN
+
+Development
+----------
 
 For more fine-grained list of changes or to report a bug, consult 
 
 * [The issues log](https://github.com/joethorley/datalist/issues)
-* [The commit log](https://github.com/joethorley/daatlist/commits/master)
+* [The commit log](https://github.com/joethorley/datalist/commits/master)
 
 Versioning
 ----------
