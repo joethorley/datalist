@@ -1,25 +1,21 @@
-NEWS 
-====
+# NEWS
 
-datalist 0.2
-----------
+# datalist 0.2
 
-v0.2 was deemed ready for general use and released on CRAN
+* Released on CRAN
 
-Development
-----------
+# Bug Reports 
 
 For more fine-grained list of changes or to report a bug, consult 
 
-* [The issues log](https://github.com/joethorley/datalist/issues)
 * [The commit log](https://github.com/joethorley/datalist/commits/master)
+* [The issues log](https://github.com/joethorley/datalist/issues)
 
-Versioning
-----------
+# Versioning
 
-Releases will be numbered with the following semantic versioning format:
+Releases are numbered with the following semantic versioning format:
 
-<major>.<minor>.<patch>
+\<major\>.\<minor\>.\<patch\>
 
 And constructed with the following guidelines:
 
