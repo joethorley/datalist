@@ -22,9 +22,9 @@ convert_variable.vinteger <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "integer")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
@@ -36,9 +36,9 @@ convert_variable.vnumeric <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "double")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
@@ -64,9 +64,9 @@ convert_variable.vdate <- function(object, x, numericise = TRUE,
     x <- as.integer(x) - as.integer(as.Date('1999-12-31'))
   
   if(standardise) {
-    x <- (x - (as.integer(object$mean) - as.integer(as.Date('1999-12-31')))) / object$sd
+    x <- (x - (as.integer(get_mean(object)) - as.integer(as.Date('1999-12-31')))) / get_sd(object)
   } else if (centre)
-    x <- x - (as.integer(object$mean) - as.integer(as.Date('1999-12-31')))
+    x <- x - (as.integer(get_mean(object)) - as.integer(as.Date('1999-12-31')))
   
   return (x)
 }
@@ -82,9 +82,9 @@ convert_variable.vposixt <- function(object, x, numericise = TRUE,
     x <- as.integer(x) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT"))  
   
   if(standardise) {
-    x <- (x - (as.integer(object$mean) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))) / object$sd
+    x <- (x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))) / get_sd(object)
   } else if (centre)
-    x <- x - (as.integer(object$mean) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))
+    x <- x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))
 
   return (x)
 }
@@ -106,9 +106,9 @@ convert_variable.minteger <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "integer")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
@@ -119,9 +119,9 @@ convert_variable.mdouble <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "double")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
@@ -146,9 +146,9 @@ convert_variable.ainteger <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "integer")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
@@ -160,9 +160,9 @@ convert_variable.adouble <- function(object, x, numericise = TRUE,
   assert_that(storage.mode(x) == "double")
   
   if(standardise) {
-    x <- (x - object$mean) / object$sd
+    x <- (x - get_mean(object)) / get_sd(object)
   } else if (centre)
-    x <- x - object$mean
+    x <- x - get_mean(object)
   
   return (x)
 }
