@@ -1,0 +1,50 @@
+context("get_range")
+
+test_that("get_range returns vector of correct class", {
+  dlogical <- variable(as.logical(0:9))
+  dnumeric <- variable(1:10 + 0.1)
+  dinteger <- variable(1:10)
+  dfactor <- variable(factor(1:10))
+  ddate <- variable(as.Date("2000-01-01") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  
+  expect_that(get_range(dlogical), is_a("logical"))
+  expect_that(get_range(dnumeric), is_a("numeric"))
+  expect_that(get_range(dinteger), is_a("integer"))
+  expect_that(get_range(dfactor), is_a("factor"))
+  expect_that(get_range(ddate), is_a("Date"))
+  expect_that(get_range(dposixt), is_a("POSIXct"))
+})
+
+test_that("get_range returns vector of specified length", {
+  dlogical <- variable(as.logical(0:9))
+  dnumeric <- variable(1:10 + 0.1)
+  dinteger <- variable(1:10)
+  dfactor <- variable(factor(1:10))
+  ddate <- variable(as.Date("2000-01-01") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  
+  expect_that(length(get_range(dlogical)), equals(2))
+  expect_that(length(get_range(dnumeric, length_out = 24)), equals(24))
+  expect_that(length(get_range(dinteger, length_out = 5)), equals(5))
+  expect_that(length(get_range(dinteger, length_out = 20)), equals(10))
+  expect_that(length(get_range(dfactor)), equals(10))
+  expect_that(length(get_range(ddate, length_out = 5)), equals(5))
+  expect_that(length(get_range(dposixt, length_out = 11)), equals(10))
+})
+
+test_that("get_range returns correct range", {
+  dlogical <- variable(as.logical(0:9))
+  dnumeric <- variable(1:10 + 0.1)
+  dinteger <- variable(1:10)
+  dfactor <- variable(factor(1:10))
+  ddate <- variable(as.Date("2000-01-01") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  
+  expect_that(get_range(dlogical), equals(c(FALSE,TRUE)))
+  expect_that(range(get_range(dnumeric)), equals(c(1.1,10.1)))
+  expect_that(range(get_range(dinteger)), equals(c(1,10)))
+  expect_that(get_range(dfactor), equals(factor(1:10)))
+  expect_that(range(get_range(ddate)), equals(as.Date(c("2000-01-02","2000-01-11"))))
+  expect_that(range(get_range(dposixt)), equals(as.POSIXct("2000-01-01", tz= "GMT") + c(1,10)))
+})
