@@ -98,7 +98,7 @@ convert_data <- function (data, numericise = TRUE, centre = FALSE,
     message(paste(c("the following variables are in dat but not data: ", x), collapse = " "))
   
   for(name in names_data) {
-      variable <- dvariable(data[[name]])      
+      variable <- variable(data[[name]])      
     if (name %in% names_dat) {
       dat[[name]] <- convert_variable(
         variable, 
