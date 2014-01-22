@@ -1,5 +1,11 @@
 # NEWS
 
+# datalist 0.3
+
+* Added `generate_data` function now has a `obs_by` argument that can be used
+to specify variables for which the returned values should only include values
+observed in the original dataset.
+
 # datalist 0.2
 
 * Released on CRAN
