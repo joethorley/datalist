@@ -2,9 +2,8 @@
 
 # datalist 0.3
 
-* `generate_data` function now has a `obs_by` argument that can be used
-to specify variables for which the returned values should only include values
-observed in the original dataset.
+* deprecated `generate_data` function for `new_data` which renames `range` argument
+as `sequence` and also has `observed` function to only select observed values
 
 # datalist 0.2
 
