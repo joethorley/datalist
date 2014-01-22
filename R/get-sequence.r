@@ -1,11 +1,16 @@
-get_range <- function (object, observed = FALSE, length_out = 30) {
+get_sequence <- function (object, observed = FALSE, length_out = 30) {
   assert_that(is.flag(observed))
   assert_that(is.count(length_out))
+  assert_that(length_out > 0)
   
-  UseMethod("get_range", object)
+  UseMethod("get_sequence", object)
 }
 
-get_range.continuous <- function(object, observed = FALSE, length_out = 30) {
+get_sequence.continuous <- function(object, observed = FALSE, length_out = 30) {
+  
+  if(length_out == 1)
+    return (get_mean(object, observed = observed))
+  
   if (observed) {
     if(length_out >= length(object$obs))
       return (object$obs)
@@ -18,7 +23,11 @@ get_range.continuous <- function(object, observed = FALSE, length_out = 30) {
   return (x)
 }
 
-get_range.categorical <- function (object, observed = FALSE, length_out = 30) {
+get_sequence.categorical <- function (object, observed = FALSE, length_out = 30) {
+  
+  if(length_out == 1)
+    return (get_min(object, observed = observed))
+
   if(observed) {
     if (length_out >= length(object$obs))
       return (object$obs)
@@ -29,7 +38,7 @@ get_range.categorical <- function (object, observed = FALSE, length_out = 30) {
   return (object$levels[1:length_out])
 }
 
-get_range.vinteger <- function(object, observed = FALSE, length_out = 30) {
+get_sequence.vinteger <- function(object, observed = FALSE, length_out = 30) {
   if (observed) {
     if(length_out >= length(object$obs))
       return (object$obs)
