@@ -6,8 +6,8 @@ Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 License: GPL-2
 Description: Numericises, centres and standardises data sets into numeric data
-    lists for import into JAGS, WinBUGS and OpenBUGS and generates new 
-    data.frames that can be passed to models for the purposes of predicting the 
+    lists for import into JAGS, WinBUGS and OpenBUGS and generates new
+    data.frames that can be passed to models for the purposes of predicting the
     effects of particular variables with the other variables held constant.
 URL: https://github.com/joethorley/datalist
 Depends:
