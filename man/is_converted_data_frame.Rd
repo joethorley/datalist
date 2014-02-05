@@ -1,0 +1,25 @@
+\name{is_converted_data_frame}
+\alias{is_converted_data_frame}
+\title{Test data set}
+\usage{
+is_converted_data_frame(x)
+}
+\arguments{
+  \item{x}{the object to test}
+}
+\value{
+A flag (logical scalar) indicating whether converted data
+}
+\description{
+Tests whether x is converted data that can be input into
+JAGS, WinBUGS or OpenBUGS.
+}
+\examples{
+is_converted_data_frame(trees)
+is_converted_data_frame(convert_data(trees))
+}
+\seealso{
+\code{\link{is_convertible_data}} and
+\code{\link{convert_data}}
+}
+

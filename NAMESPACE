@@ -1,6 +1,8 @@
 export(convert_data)
 export(generate_data)
 export(is_converted_data)
+export(is_converted_data_frame)
+export(is_converted_data_list)
 export(is_convertible_data)
 export(is_convertible_data_frame)
 export(is_convertible_data_list)
