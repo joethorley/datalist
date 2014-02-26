@@ -1,5 +1,11 @@
 # NEWS
 
+# datalist 0.4
+
+* added function `is_converted_data` to test if data has already been converted.
+
+* simpler messages when input argument conditions not meet
+
 # datalist 0.3
 
 * deprecated `generate_data` function for `new_data` which renames `range` argument
