@@ -10,16 +10,15 @@ To install or update, run:
 
 ## Development
 
-To install the development version of jaggernaut, it's easiest to use the `devtools` package:
+To install the development version of datalist, it's easiest to use the `devtools` package:
 
     # install.packages("devtools")
     library(devtools)
-    install_github("datalist", "joethorley")
+    install_github("poissonconsulting/datalist")
     
 ## Contact
 
 You are welcome to:
 
-* submit suggestions and bug-reports at: https://github.com/joethorley/datalist/issues
-* send a pull request on: https://github.com/joethorley/datalist/
-* compose a friendly e-mail to: joe@poissonconsulting.ca
+* submit suggestions and bug-reports at: https://github.com/poissonconsulting/datalist/issues
+* send a pull request on: https://github.com/poissonconsulting/datalist/
