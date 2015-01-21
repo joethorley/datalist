@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/datalist.png?branch=master)](https://travis-ci.org/poissonconsulting/datalist)
+
 # datalist
 
 datalist is an R package to numericise, centre and standardise data sets for import 
