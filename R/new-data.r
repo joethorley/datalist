@@ -59,7 +59,7 @@ new_data <- function (data, sequence = NULL, observed = NULL, length_out = 30) {
   
   dat<-list()
   for (colname in colnames(data)) {
-    variable <- variable(data[, colname, drop = TRUE])
+    variable <- variable(data[[colname]])
     dat[[colname]] <- get_sequence(variable, 
                                    observed = colname %in% observed,
                                   length_out = ifelse(colname %in% sequence, 

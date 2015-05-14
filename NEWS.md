@@ -1,5 +1,9 @@
 # NEWS
 
+# datalist 0.4.1
+
+- `new_data` now runs on objects of class `tbl_df`
+
 # datalist 0.4
 
 * added function `is_converted_data` to test if data has already been converted.
