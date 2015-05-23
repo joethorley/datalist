@@ -60,13 +60,12 @@ convert_variable.vdate <- function(object, x, numericise = TRUE,
                                    centre = FALSE, standardise = FALSE) {
   assert_that(is.date(x))
   
-  if (numericise || centre || standardise)
-    x <- as.integer(x) - as.integer(as.Date('1999-12-31'))
-  
   if(standardise) {
-    x <- (x - (as.integer(get_mean(object)) - as.integer(as.Date('1999-12-31')))) / get_sd(object)
-  } else if (centre)
-    x <- x - (as.integer(get_mean(object)) - as.integer(as.Date('1999-12-31')))
+    x <- (date2integer(x) - date2integer(get_mean(object))) / get_sd(object)
+  } else if (centre) {
+    x <- date2integer(x) - date2integer(get_mean(object))
+  } else if (numericise)
+    x <- date2integer(x)
   
   return (x)
 }

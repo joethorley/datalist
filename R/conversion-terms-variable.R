@@ -64,12 +64,10 @@ conversion_terms_variable.vdate <- function(object, x, centre = FALSE, standardi
   sd <- NA_real_
   
   if(standardise) {
-    mean <- get_mean(object)
+    mean <- date2integer(get_mean(object))
     sd <- get_sd(object)    
   } else if (centre)
-    mean <- get_mean(object)
-  
-  mean <- as.integer(mean) - as.integer(as.Date('1999-12-31'))
+    mean <- date2integer(get_mean(object))
   
   c(mean = mean, sd = sd)
 }
