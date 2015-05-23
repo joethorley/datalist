@@ -25,12 +25,3 @@ test_that("convert_data on data list returns correct length", {
   expect_that(convert_data(data), is_a("list"))
   expect_that(length(convert_data(data)), equals(6))
 })
-
-test_that("convert_data warning with character", {
-  data <- data.frame(
-    dinteger = 1:10,
-    dcharacter = as.character(1:10), stringsAsFactors = FALSE
-  )
-  expect_warning(convert_data(data))
-})
-
