@@ -1,5 +1,9 @@
 # NEWS
 
+# datalist 0.5.0
+
+- added function `conversion_terms` to get mean and sd of converted variables
+
 # datalist 0.4.1
 
 - `new_data` now runs on objects of class `tbl_df`

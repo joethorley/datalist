@@ -7,7 +7,7 @@ test_that("convert_data on data.frame returns correct number of rows", {
     dinteger = 1:10,
     dfactor = factor(1:10),
     ddate = as.Date("2000-01-01") + 1:10,
-    dposixt = as.POSIXct("2000-01-01", tz= "GMT") + 1:10
+    dposixt = as.POSIXct("2000-01-01", tz= "UTC") + 1:10
   )
   expect_that(convert_data(data), is_a("data.frame"))
   expect_that(nrow(convert_data(data)), equals(10))
@@ -20,8 +20,17 @@ test_that("convert_data on data list returns correct length", {
     dinteger = 1:10,
     dfactor = factor(1:10),
     ddate = as.Date("2000-01-01") + 1:10,
-    dposixt = as.POSIXct("2000-01-01", tz= "GMT") + 1:10
+    dposixt = as.POSIXct("2000-01-01", tz= "UTC") + 1:10
   )
   expect_that(convert_data(data), is_a("list"))
   expect_that(length(convert_data(data)), equals(6))
 })
+
+test_that("convert_data warning with character", {
+  data <- data.frame(
+    dinteger = 1:10,
+    dcharacter = as.character(1:10), stringsAsFactors = FALSE
+  )
+  expect_warning(convert_data(data))
+})
+

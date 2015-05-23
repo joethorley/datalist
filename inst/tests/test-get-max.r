@@ -6,7 +6,7 @@ test_that("get_max returns vector of correct class", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_max(dlogical), is_a("logical"))
   expect_that(get_max(dnumeric), is_a("numeric"))
@@ -29,7 +29,7 @@ test_that("get_max returns vector of specified length", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(length(get_max(dlogical)), equals(1))
   expect_that(length(get_max(dnumeric)), equals(1))
@@ -52,12 +52,12 @@ test_that("get_max returns correct value", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_max(dlogical), equals(TRUE))
   expect_that(get_max(dnumeric), equals(10.1))
   expect_that(get_max(dinteger), equals(10))
   expect_that(get_max(dfactor), equals(factor(1:10)[10]))
   expect_that(get_max(ddate), equals(as.Date("2000-01-01") + 10))
-  expect_that(get_max(dposixt), equals(as.POSIXct("2000-01-01", tz= "GMT") + 10))
+  expect_that(get_max(dposixt), equals(as.POSIXct("2000-01-01", tz= "UTC") + 10))
 })

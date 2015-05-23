@@ -6,7 +6,7 @@ test_that("creates correct class of variable", {
   vnumeric <- variable(1:10 + 0.1)
   vfactor <- variable(factor(1:10))
   vdate <- variable(as.Date("2000-01-01") + 1:10)
-  vposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  vposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   mlogical <- variable(matrix(TRUE))
   minteger <- variable(matrix(as.integer(1)))

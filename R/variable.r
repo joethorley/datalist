@@ -43,6 +43,11 @@ variable.numeric <- function (x) {
     return (object)
 }
 
+variable.character <- function (x) {  
+    x <- as.factor (x)
+    variable(x)
+}
+
 variable.factor <- function (x) {
     x <- as.factor (x)
     

@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert-data.r
 \name{convert_data}
 \alias{convert_data}
-\title{Convert data}
+\title{Convert Data}
 \usage{
 convert_data(data, numericise = TRUE, centre = FALSE, standardise = FALSE,
   dat = NULL)
@@ -30,7 +30,8 @@ Convert (by numericising, centring or standardising) the variables of a
 data.frame or elements of a list into a list of integer or numeric values
 ready for analysis by
 JAGS, OpenBUGS or WinBUGS.
-
+}
+\details{
 Numericising, centring and standardising represent increasing conversion of a
 variable. A variable is first converted into a numeric value (numericising).
 Next the mean is subtracted from all the values (centring). Finally all the
@@ -40,12 +41,12 @@ Numericising has no effect on numeric and integer values. Factors are
 numericized
 by converting to an integer.
 Date and POSIXt variables are numericised by converting to integer values
-and subtracting the integer value of 1999-12-31 or 1999-12-31 23:59:59 GMT,
+and subtracting the integer value of 1999-12-31 or 1999-12-31 23:59:59 UTC,
 respectively.
 
-Centring has no affect on factors while Date and POSIXt values are subtracted
+Centring has no affect on factors while integer, Date and POSIXt values are subtracted
 from the rounded mean.
-Similarly, standardising has no affect on factors while centred
+Similarly, standardising has no affect on factors while centred integer,
 Date and POSIXt values are divided by their respective standard deviation.
 }
 \examples{

@@ -79,12 +79,12 @@ convert_variable.vposixt <- function(object, x, numericise = TRUE,
   x <- as.POSIXct(x)
 
   if (numericise || centre || standardise)
-    x <- as.integer(x) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT"))  
+    x <- as.integer(x) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "UTC"))  
   
   if(standardise) {
-    x <- (x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))) / get_sd(object)
+    x <- (x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "UTC")))) / get_sd(object)
   } else if (centre)
-    x <- x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "GMT")))
+    x <- x - (as.integer(get_mean(object)) - as.integer(as.POSIXct('1999-12-31 23:59:59',tz = "UTC")))
 
   return (x)
 }

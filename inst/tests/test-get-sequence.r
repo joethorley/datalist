@@ -6,7 +6,7 @@ test_that("get_sequence returns vector of correct class", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_sequence(dlogical), is_a("logical"))
   expect_that(get_sequence(dnumeric), is_a("numeric"))
@@ -22,7 +22,7 @@ test_that("get_sequence returns vector of specified length", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(length(get_sequence(dlogical)), equals(2))
   expect_that(length(get_sequence(dnumeric, length_out = 24)), equals(24))
@@ -39,12 +39,12 @@ test_that("get_sequence returns correct range", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_sequence(dlogical), equals(c(FALSE,TRUE)))
   expect_that(range(get_sequence(dnumeric)), equals(c(1.1,10.1)))
   expect_that(range(get_sequence(dinteger)), equals(c(1,10)))
   expect_that(get_sequence(dfactor), equals(factor(1:10)))
   expect_that(range(get_sequence(ddate)), equals(as.Date(c("2000-01-02","2000-01-11"))))
-  expect_that(range(get_sequence(dposixt)), equals(as.POSIXct("2000-01-01", tz= "GMT") + c(1,10)))
+  expect_that(range(get_sequence(dposixt)), equals(as.POSIXct("2000-01-01", tz= "UTC") + c(1,10)))
 })

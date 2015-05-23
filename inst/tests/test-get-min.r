@@ -6,7 +6,7 @@ test_that("get_min returns vector of correct class", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_min(dlogical), is_a("logical"))
   expect_that(get_min(dnumeric), is_a("numeric"))
@@ -29,7 +29,7 @@ test_that("get_min returns vector of specified length", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(length(get_min(dlogical)), equals(1))
   expect_that(length(get_min(dnumeric)), equals(1))
@@ -52,12 +52,12 @@ test_that("get_min returns correct value", {
   dinteger <- variable(1:10)
   dfactor <- variable(factor(1:10))
   ddate <- variable(as.Date("2000-01-01") + 1:10)
-  dposixt <- variable(as.POSIXct("2000-01-01", tz= "GMT") + 1:10)
+  dposixt <- variable(as.POSIXct("2000-01-01", tz= "UTC") + 1:10)
   
   expect_that(get_min(dlogical), equals(FALSE))
   expect_that(get_min(dnumeric), equals(1.1))
   expect_that(get_min(dinteger), equals(1))
   expect_that(get_min(dfactor), equals(factor(1:10)[1]))
   expect_that(get_min(ddate), equals(as.Date("2000-01-02")))
-  expect_that(get_min(dposixt), equals(as.POSIXct("2000-01-01", tz= "GMT") + 1))
+  expect_that(get_min(dposixt), equals(as.POSIXct("2000-01-01", tz= "UTC") + 1))
 })

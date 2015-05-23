@@ -23,7 +23,7 @@ is_convertible_data_list <- function (x) {
   for (class in c("integer","numeric","factor","Date","POSIXt","matrix","array")) {
     bol <- bol | sapply(x, inherits, class)
   }
-  return (all(bol))
+  all(bol)
 }
 
 #' @title Test data frame
