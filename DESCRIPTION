@@ -15,4 +15,4 @@ Depends:
 Imports:
     assertthat (>= 0.1)
 Suggests:
-    testthat (>= 0.10)
+    testthat (>= 0.10.0)

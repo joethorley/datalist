@@ -2,6 +2,7 @@
 
 # datalist 0.5.0
 
+- added functions `date2integer` and `integer2date` for variable conversion
 - added function `conversion_terms` to get mean and sd of converted variables
 
 # datalist 0.4.1

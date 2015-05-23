@@ -2,7 +2,9 @@
 
 export(conversion_terms)
 export(convert_data)
+export(date2integer)
 export(generate_data)
+export(integer2date)
 export(is_converted_data)
 export(is_converted_data_frame)
 export(is_converted_data_list)
