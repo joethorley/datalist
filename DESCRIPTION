@@ -1,5 +1,5 @@
 Package: datalist
-Version: 0.5.0
+Version: 0.5.1
 Date: 2015-05-22
 Title: Numericise, centre, standardise and generate new data sets
 Author: Joe Thorley [aut, cre]
@@ -11,7 +11,7 @@ Description: Numericises, centres and standardises data sets
     effects of particular variables with the other variables held constant.
 URL: https://github.com/joethorley/datalist
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.1.0)
 Imports:
     assertthat (>= 0.1)
 Suggests:
