@@ -1,5 +1,9 @@
 # NEWS
 
+# datalist 0.5.2
+
+- Update NAMESPACE
+
 # datalist 0.5.0
 
 - added functions `date2integer` and `integer2date` for variable conversion

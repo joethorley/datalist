@@ -1,6 +1,6 @@
 Package: datalist
-Version: 0.5.1
-Date: 2015-05-22
+Version: 0.5.2
+Date: 2016-08-09
 Title: Numericise, centre, standardise and generate new data sets
 Author: Joe Thorley [aut, cre]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
@@ -13,6 +13,7 @@ URL: https://github.com/joethorley/datalist
 Depends:
     R (>= 3.1.0)
 Imports:
-    assertthat (>= 0.1)
+    assertthat
 Suggests:
-    testthat (>= 0.10.0)
+    testthat
+RoxygenNote: 5.0.1
